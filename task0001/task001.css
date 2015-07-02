@@ -1,0 +1,135 @@
+﻿h1{
+  color:blue;
+}
+h2{
+  font-size: 14px;
+}
+p{
+  font-size: 12px;
+  color:yellow;
+  background-color: black;
+}
+img{
+  border: 1px solid red;
+}
+/* 第一个居中 */
+#center1{
+  margin:0 auto;
+  background-color:red;
+  width:960px;
+}
+/* 第二个居中 */
+#center2{
+  background-color: red;
+  width:960px;
+  margin-left: -480px;
+  position: relative;
+  left: 50%;
+}
+/*两列布局方法一 类似双飞翼*/
+#div-ab-1{
+  padding:0 0 0 100px;
+  overflow: hidden;/*将这个div撑起来*/
+}
+#div-b-1{
+  float:left;
+  width:100%;
+  background-color: #0000fd;
+}
+#div-a-1{
+  float:left;
+  width:100px;
+  margin-left: -100%;
+  position: relative;
+  left:-100px; 
+  background-color:#fe0002;
+}
+#div-c-1{
+  background-color: #ffff00;
+  width:100%;
+}
+/*两列布局方法二 盒布局*/
+#div-ab-2{
+  display:-webkit-flex;
+  display:flex;
+}
+#div-a-2{
+  width:100px;
+  background-color:#fe0002;
+}
+#div-b-2{
+  -webkit-flex:1;
+  flex:1;
+  background-color: #0000fd;
+}
+#div-c-2{
+  background-color: #ffff00;
+}
+/*三列布局方法一 双飞翼*/
+#bd-1{
+  padding:0 160px 0 160px;
+}
+#main-1{
+  float:left;
+  width:100%;
+  background-color: #d6d6d6;
+}
+#sub-1{
+  float:left;
+  width:160px;
+  margin-left: -100%;
+  position:relative;
+  left:-160px;
+  background-color: #e79f6d;
+}
+#extra-1{
+  float:left;
+  width:160px;
+  margin-left: -160px;
+  position:relative;
+  left:160px;
+  background-color: #77bbdd;
+}
+/* 三列布局方法二 盒布局 */
+#bd-2{
+  display:-webkit-flex;
+  display:flex;
+}
+#sub-2{
+  width:160px;
+  background-color: #e79f6d;
+}
+#main-2{
+  -webkit-flex:1;
+  flex:1;
+  background-color: #d6d6d6;
+}
+#extra-2{
+  width:160px;
+  background-color:#77bbdd;
+}
+/*浮动布局 方法一 float*/
+#red-contain-1{
+  background-color: #d6d6d6;
+  overflow: hidden;
+  width:50%;
+}
+.blue-contain-1{
+  float:left;
+  width:150px;
+  height:100px;
+  margin:25px;
+  background-color: #77bbdd;
+}
+/*浮动布局 方法二 inlin-block*/
+#red-contain-2{
+  background-color:#d6d6d6;
+  width:50%;
+}
+.blue-contain-2{
+  display:inline-block;
+  width:150px;
+  height:100px;
+  margin:25px;
+  background-color:#77bbdd;
+}
