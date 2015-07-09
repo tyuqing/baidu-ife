@@ -18,6 +18,7 @@ function trim(str) {
   return str.replace("/(^[ \s\n\t]*)|(\s*$)/g",'');
 }
 
+
 // 使用示例
 var str = ' hi!  ';
 str = trim(str);
