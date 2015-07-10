@@ -1,3 +1,4 @@
+/*task0002 的2.1*/
 // 判断arr是否为一个数组，返回一个bool值
 function isArray(arr) {
   return(arr instanceof Array);
@@ -131,8 +132,7 @@ each(arr, output);  // 0:java, 1:c, 2:php, 3:html
 
 // 获取一个对象里面第一层元素的数量，返回一个整数
 function getObjectLength(obj) {
-  return obj.length;
-}
+  return obj.size();
 
 // 使用示例
 var obj = {
@@ -144,3 +144,45 @@ var obj = {
     }
 };
 console.log(getObjectLength(obj)); // 3
+
+// 判断是否为邮箱地址
+function isEmail(emailStr) {
+  return emailStr.match(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/);
+}
+
+// 判断是否为手机号
+function isMobilePhone(phone) {
+  return phone.match(/^1(35|36|37|56|82|89)\d{8}$/);
+}
+
+/*task0002 的3.1*/
+
+function hasClass(element, cName){ 
+  return !!elements.className.match(new RegExp("(\s+|^)" + cName + "(\s+|$)"));
+  //return !!elements.className.match(new RegExp("(\\s|^)" + cName + "(\\s|$)")); //网上的代码 ( \\s|^ ) 判断前面是否有空格 （\\s | $ ）判断后面是否有空格 两个感叹号为转换为布尔值 以方便做判断 
+}; 
+
+// 为element增加一个样式名为newClassName的新样式
+function addClass(element, newClassName) {
+  if(!hasClass(element, newClassName)) {
+    element.className = element.className + newClassName;
+  }
+}
+
+// 移除element中的样式oldClassName
+function removeClass(element, oldClassName) {
+  if(hasClass(element, oldClassName)) {
+    element.className = element.className.replace(new RegExp("(\s+|^)" + oldClassName +"(\s+|$)"), "");
+  }
+}
+
+// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值
+function isSiblingNode(element, siblingNode) {
+  return element.parentNode == siblingNode.parentNode;
+}
+
+// 获取element相对于浏览器窗口的位置，返回一个对象{x, y}
+function getPosition(element) {
+    // your implement
+}
+// your implement
