@@ -1,0 +1,30 @@
+.carousel {
+  max-width: 100%;
+}
+.carousel-indicators {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  width: 60%;
+  margin-left: -32%;
+  text-align: center;
+  z-index: 15;
+  list-style: none;
+  min-width: 567px;
+}
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-inner {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  left: 50%;
+  margin-left: 
+}
