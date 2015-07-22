@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>输入提示框</title>
+  <style>
+    .tips {
+      border: 1px solid gray;
+      display: none;
+      width: 200px;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+      padding-left: 4px;
+    }
+    li:hover {
+      background-color: gray;
+    }
+    .current-li {
+      background-color: gray;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" name="txt" id="txt" value="">
+  <div class="tips"></div>
+</body>
+<script>
+  var txt = document.getElementById('txt');
+  var tips =document.getElementsByClassName('tips')[0];
+  var array = ['tyq', 'tyq1', 'tyq2', 'lf', 'lf2'];
+  //获取焦点事件
+  txt.onkeyup = function(){
+    var onarray = [];
+    for(var i = 0; i < array.length; i++) {
+      if(array[i].indexOf(txt.value) != -1) {
+        onarray.push(array[i]);
+      }
+    }
+    if(onarray.length != 0) {
+      tips.style.display = 'block';
+      var listr = '';
+      for(var i = 0; i < onarray.length; i++) {
+        listr += '<li>' + onarray[i] + '</li>'
+      }
+      var htmlstr = '<ul>' + listr +'</ul>';
+      tips.innerHTML = htmlstr;
+    }
+  }
+  var i = -1;
+  var value = '';
+  //失去焦点事件
+  txt.onblur = function() {
+    if(txt.value == null || txt.value == '') {
+      tips.style.display = 'none';
+      tips.innerHTML = '';
+      i = -1;
+      value = '';
+    }
+  }
+  //按上下键选项
+  txt.onkeydown = function(event) {
+    var event = event || windows.event;
+    if(event.keyCode == 40) {
+      //如果按到下箭头
+      ;
+      if(++i >= tips.childNodes[0].childNodes.length) {
+        i = 0;
+      }
+      value = tips.childNodes[0].childNodes[i].innerHTML;
+      //去掉其他li的背景
+      for (var j = 0; j < tips.childNodes[0].childNodes.length; j++) {
+        tips.childNodes[0].childNodes[j].className = '';
+      };
+      //修改本li的背景
+      setTimeout(function() {
+        tips.childNodes[0].childNodes[i].className = 'current-li';
+      }, 0);
+      //txt.value = value;
+    }else if(event.keyCode == 38 && i > 0) {
+      //按上箭头
+      i--;
+      value = tips.childNodes[0].childNodes[i].innerHTML;
+      //去掉其他li的背景
+      for (var j = 0; j < tips.childNodes[0].childNodes.length; j++) {
+        tips.childNodes[0].childNodes[j].className = '';
+      };
+      //修改本li的背景
+      setTimeout(function() {
+        tips.childNodes[0].childNodes[i].className = 'current-li';
+      }, 0);
+      //txt.value = value;
+    }else if(event.keyCode == 38 && i <= 0) {
+      i = tips.childNodes[0].childNodes.length - 1;
+      value = tips.childNodes[0].childNodes[i].innerHTML;
+      //去掉其他li的背景
+      for (var j = 0; j < tips.childNodes[0].childNodes.length; j++) {
+        tips.childNodes[0].childNodes[j].className = '';
+      };
+      //修改本li的背景
+      setTimeout(function() {
+        tips.childNodes[0].childNodes[i].className = 'current-li';
+      }, 0);
+    }else if(event.keyCode == 13) {
+      //按回车
+      txt.value = value;
+      tips.style.display = 'none';
+      tips.innerHTML = '';
+    }
+  }
+  //点击列表中值使得文本框值更改
+  tips.onclick = function(event) {
+    var event = event || windows.event;
+    var src = event.targrt || event.srcElement;
+    txt.value = src.innerHTML;
+    tips.style.display = 'none';
+    tips.innerHTML='';
+  }
+</script>
+</html>

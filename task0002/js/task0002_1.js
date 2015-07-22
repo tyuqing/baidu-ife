@@ -91,11 +91,12 @@ var height = imgs[0].offsetHeight;//图片高度
 //先将其他图片隐藏
 for(var i = 1; i <imgs.length; i++) {
   imgs[i].style.left = (width * i) + 'px';
+  imgs[i].style.top = -(height * i) + 'px';
 }
 i = null;
 function leftMove() {
   //将右边一个往左移动
-  for(var i in imgs) {
+  for(var i =0; i < imgs.length; i++) {
     var leftone = imgs[i].style.left;
     leftone = Number(leftone.replace('px', ''));
     leftone -= 10;
@@ -113,4 +114,4 @@ function leftMove() {
     }
   }
 }
-//var int = setInterval(leftMove, 10);
+var int = setInterval(leftMove, 10);

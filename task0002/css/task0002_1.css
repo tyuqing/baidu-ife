@@ -26,5 +26,16 @@
   max-width: 100%;
   overflow: hidden;
   left: 50%;
-  margin-left: 
+  margin-left: -480px;
+  width: 960px;
+}
+.item {
+  text-align: center;
+  position: relative;
+  width: 960px;
+  height: 300px;
+}
+.item img {
+  width: 960px;
+  height: 300px;
 }
